@@ -28,8 +28,8 @@ gem 'private_pub', '~> 1.0.3'
 #gem for real-time(notifications for now, chat implemented with private pub)
 gem 'pusher', '~> 0.15.1'
 gem 'pusher-client', '~> 0.6.2'
-#webserver (heroku recommends puma as default)
-gem 'puma', '~> 2.13.4'
+#webserver
+gem 'puma'
 #bootstrap
 gem 'bootstrap-sass', '~> 3.3.5.1'
 #pagination
@@ -52,9 +52,9 @@ gem 'figaro', '~> 1.1.1'
 gem 'devise', '~> 3.5.2'
 gem 'devise_invitable', '~> 1.5.2'
 #image and file uploading+AWS S3 storage
-gem 'carrierwave', '~> 0.10.0'
-gem 'fog', '~> 1.34.0'
-gem 'mini_magick', '~> 4.3.3'
+gem 'carrierwave'
+gem 'fog'
+gem 'mini_magick'
 #refile for file uploading
 gem 'refile', '~> 0.6.1', require: "refile/rails"
 gem 'refile-mini_magick', '~> 0.2.0'
@@ -114,4 +114,3 @@ end
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
 end
-
