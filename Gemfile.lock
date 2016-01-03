@@ -510,12 +510,8 @@ DEPENDENCIES
   jquery-ui-rails (~> 5.0.5)
   launchy (~> 2.4.3)
   letter_opener (~> 1.4.1)
-<<<<<<< HEAD
   mini_magick
-=======
-  mini_magick (~> 4.3.3)
   momentjs-rails (~> 2.10, >= 2.10.6)
->>>>>>> faskyn/master
   net-ssh (~> 3.0, >= 3.0.1)
   newrelic_rpm
   omniauth-angellist (~> 1.0)

@@ -34,6 +34,9 @@
           <li><%= link_to other_notifications_user_notifications_path(current_user), 'data-toggle' => "tooltip", 'data-placement' => "bottom", 'data-delay' => '{"show":"250"}', 'title' => "Notifications" do %>
            <span id="notify"><i class="fa fa-bell"></i><%= render 'notifications/newothernotification' %></span>
           <% end %></li>
+          <li><%= link_to user_events_path(current_user), 'data-toggle' => "tooltip", 'data-placement' => "bottom", 'data-delay' => '{"show":"250"}', 'title' => "Events" do %>
+           <span id="notify"><i class="fa fa-calendar"></i><%= render 'notifications/newothernotification' %></span>EVENTS
+          <% end %></li>
         <% else %>
           <li><p class="navbar-btn"><%= link_to "CREATE PROFILE", new_user_profile_path(current_user), class: "btn btn-danger" %></p></li>
         <% end %>
@@ -68,7 +71,7 @@
             <% end %>
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
           </ul>
-        </li>    
+        </li>
       <% else %>
         <li><p class="navbar-btn"><%= link_to "LOG IN", new_user_session_path, class: "btn btn-primary", id: "btn-outline-primary" %></p></li>
       <% end %>
@@ -77,6 +80,3 @@
   </div>
 </nav>
 </span>
-
-
-

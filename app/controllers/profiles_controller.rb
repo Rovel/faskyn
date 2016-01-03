@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :if_profile_exists, only: [:new, :create]
+  #before_action :if_profile_exists, only: [:new, :create]
   before_action :find_user_for_profile, except: :profile_twitter
   before_action :set_profile, only: [:show, :edit, :update]
 
@@ -57,4 +57,3 @@ class ProfilesController < ApplicationController
       redirect_to user_path(current_user), notice: "You can only check your own profile." unless @user == current_user
     end
 end
-

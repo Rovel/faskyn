@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   has_many :messages, dependent: :destroy
 
-  
+
 
   #likely not needed, yet to take it out
   def tasks_uncompleted

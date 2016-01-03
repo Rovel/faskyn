@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def find_links(message_body)
-     Rinku.auto_link(message_body, mode=:all, 'target="_blank"', skip_tags=nil).html_safe 
+     Rinku.auto_link(message_body, mode=:all, 'target="_blank"', skip_tags=nil).html_safe
   end
 
   def date_to_string(date)
