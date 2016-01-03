@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'static_pages/about', path: 'about'
   get 'static_pages/help', path: 'help'
   get 'static_pages/privacypolicy', path: 'privacypolicy'
+  get 'application/google7df1f819c8dc9008', path: 'google7df1f819c8dc9008'
 
   post 'pusher/auth' #for pusher authentication
   get '/auth/:provider/callback', to: 'socials#create' #twitter/linkedin/angellist
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   resources :contacts
   devise_for :users
   resources :users do
+    resources :eventnamecompanies
+    resources :events
     resources :notifications, only: [:create, :index] do
       collection do
         get :other_notifications, :chat_notifications
