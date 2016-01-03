@@ -55,7 +55,7 @@ gem 'devise', '~> 3.5.2'
 gem 'devise_invitable', '~> 1.5.2'
 #image and file uploading+AWS S3 storage
 gem 'carrierwave'
-gem 'fog'
+gem 'fog', require: 'fog/aws/storage'
 gem 'mini_magick'
 #refile for file uploading
 gem 'refile', '~> 0.6.1', require: "refile/rails"
