@@ -30,7 +30,7 @@ class TasksController < ApplicationController
       @assigned_task = current_user.assigned_tasks.find(params[:id])
     else
       @executed_task = current_user.executed_tasks.find(params[:id])
-    end 
+    end
   end
 
   def outgoing_tasks

@@ -2,11 +2,19 @@
 @import 'bootstrap';
 
 $gray-medium-light: #eaeaea;
-$garmin-blue: #007cc3;
+$brand-blue: #007cc3;
 $dark-grey: #5E5E5E;
 $dropbox-light-grey: #7b8994;
 $orange: #ff6600;
 
+$brand-pink       : #E0224F;
+$brand-blue       : #20253D;
+$brand-lightblue  : #3381c3;
+$brand-green      : #62BE6E;
+$brand-yellow     : #F59F0E;
+$brand-gray       : #666666;
+$brand-gray-dark  : #333333;
+$brand-gray-light : #B8B8B8;
 
 /*app layout*/
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
@@ -44,35 +52,35 @@ $font-family-serif:       'Georgia', serif;
 }
 
 .panel-primary .panel-heading {
-  background: $garmin-blue;
+  background: $brand-blue;
 }
 
 .pagination {
   margin-top: 7px;
   ul {
     .active a {
-      background: $garmin-blue;
-      border-color: $garmin-blue;
+      background: $brand-blue;
+      border-color: $brand-blue;
     }
     a {
-      color: $garmin-blue;
+      color: $brand-blue;
     }
   }
 }
 
 .btn-primary {
-  background: $garmin-blue;
-  border-color: $garmin-blue;
+  background: $brand-blue;
+  border-color: $brand-blue;
 }
 
 #btn-outline-primary {
-    color: $garmin-blue;
+    color: $brand-blue;
     background-color: transparent;
     box-shadow:none;
-    border: 2px solid $garmin-blue;
+    border: 2px solid $brand-blue;
   &:hover, &:focus, &:active {
     color: white;
-    background-color: $garmin-blue;
+    background-color: $brand-blue;
     transition: 0.25s;
   }
 }
@@ -118,7 +126,7 @@ a {
   }
   .navbar-header, .navbar-right li {
     a {
-      color: $garmin-blue;
+      color: $brand-blue;
       &:hover {
         color: black;
       }
@@ -128,12 +136,12 @@ a {
 
 .signedinbar .navbar-default {
   .navbar-btn .btn-danger {
-    border-color: $garmin-blue;
+    border-color: $brand-blue;
   }
   .navbar-right {
     margin-right:5px;
   }
-  background: $garmin-blue;
+  background: $brand-blue;
   .navbar-right li:last-child a { //if profile pic in navbar
     padding-top:10px;
     padding-bottom:10px;
@@ -145,7 +153,7 @@ a {
   .navbar-right > li > a {
     color: white;
     &:hover {
-      color: $garmin-blue;
+      color: $brand-blue;
       background: white;
     }
   }
@@ -165,7 +173,7 @@ a {
   }
   .dropdown-toggle:active, .open .dropdown-toggle {
     background:white !important;
-    color:$garmin-blue !important;
+    color:$brand-blue !important;
   }
   @media (min-width: 979px) {
     ul.nav li.dropdown:hover > ul.dropdown-menu {
@@ -237,7 +245,7 @@ footer {
 */
 
 .container-form {
-  padding-top:30px;  
+  padding-top:30px;
 }
 
 #wrapper {
@@ -262,7 +270,7 @@ footer {
   height: 100%;
   margin-left: -250px;
   overflow-y: hidden;
-  background: #f7f7f7;//background: $garmin-blue;
+  background: #f7f7f7;//background: $brand-blue;
   border-right: 1px $gray-medium-light solid;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;

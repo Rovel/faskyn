@@ -9,7 +9,7 @@ $orange: #ff6600;
 	height: auto !important;
 	.jumbotron {
 		height: 600px;
-		background-image: image_url('jumbotron2.jpg');
+		//background-image: image_url('jumbotron2.jpg');
 		background-size: cover;
 		background-color: rgba(255,255,255,0.5);
 		background-repeat: no-repeat;
@@ -26,6 +26,21 @@ $orange: #ff6600;
 			opacity:0.5;
 		}
 	}
+	.videobg {
+	  background-size: cover;
+	  background-position: center;
+	  z-index: 0;
+	  position: absolute;
+	  @media only screen and (min-width:1280px) {
+	    width: 100%;
+	  }
+	}
+}
+
+.logo{
+	height: 100%;
+	background-image: image_url('logo-white.png');
+	background-repeat: no-repeat;
 }
 
 .hero-title {

@@ -1,4 +1,5 @@
   <div id="home_loggedout">
+    <video class="videobg" loop autoplay muted preload="auto" src="../videobg.mp4" type="video/mp4" poster="https://s3.amazonaws.com/letsjam-production/bg-landing1.jpg"></video>
     <div class= "jumbotron">
       <div class= "container">
         <% if notice %>
@@ -27,6 +28,7 @@
           <% end %>
         </div>
         <% end %>
+        <div class= "logo"></div>
         <div class= "hero-title">
           <h1>Ask for something and get things done!</h1>
         </div>
@@ -71,7 +73,7 @@
             </span>
             <h4>Return the favor or get assigned</h4>
             <p>Enjoy the quick results and get ready to be assigned or return the favor within your area of expertise.</p>
-          </div>    
+          </div>
         </div>
       </div>
     </div>
@@ -126,5 +128,3 @@
     </div>
   </div>
   <%= render 'footer' %>
-
-
