@@ -80,20 +80,19 @@ gem 'foreman', '~> 0.78.0'
 gem 'net-ssh', '~> 3.0', '>= 3.0.1'
 #finding links
 gem 'rinku', '~> 1.7', '>= 1.7.3'
-#social media integration
+#social media and calendar integration
 gem 'omniauth-twitter', '~> 1.2', '>= 1.2.1'
 gem 'omniauth-linkedin', '~> 0.2.0'
-gem 'omniauth-angellist', '~> 1.0'
+gem 'google-api-client', '~> 0.8.6', require: 'google/api_client'
+gem 'omniauth-google-oauth2', '~> 0.2.10'
 #calendar gem
 gem 'fullcalendar-rails', '~> 2.5'
-#framework for handling timeformats
+#framework for handling timeformats in js
 gem 'momentjs-rails', '~> 2.10', '>= 2.10.6'
+gem 'local_time', '~> 1.0', '>= 1.0.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

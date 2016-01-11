@@ -10,13 +10,16 @@ Rails.application.routes.draw do
   get 'application/google7df1f819c8dc9008', path: 'google7df1f819c8dc9008'
 
   post 'pusher/auth' #for pusher authentication
-  get '/auth/:provider/callback', to: 'socials#create' #twitter/linkedin/angellist
-  get '/auth/failure', to: redirect('/')
+  get '/auth/:provider/callback', to: 'socials#create' #twitter/linkedin/angellist/google
   resources :contacts
   devise_for :users
   resources :users do
     resources :eventnamecompanies
-    resources :events
+    resources :events do
+      collection do
+        get :other_events
+      end
+    end
     resources :notifications, only: [:create, :index] do
       collection do
         get :other_notifications, :chat_notifications
