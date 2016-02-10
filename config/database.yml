@@ -1,6 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
+  host: localhost
   database: faskyn_development
   pool: 5
   password:
@@ -8,6 +9,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
+  host: localhost
   database: faskyn_test
   pool: 5
   password:
+<<<<<<< HEAD
+=======
+
+production:
+  url:  <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV['MAX_THREADS'] || 5 %>
+
+>>>>>>> faskyn/master

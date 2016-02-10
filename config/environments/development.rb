@@ -5,8 +5,8 @@ Rails.application.configure do
   require 'pusher'
 
   Pusher.app_id = '157688'
-  Pusher.key = '7cb6e2eb8727260e02ad'
-  Pusher.secret = 'c78cde58066e3e9118ac'
+  Pusher.key = ENV['PUSHER_KEY']
+  Pusher.secret = ENV['PUSHER_SECRET']
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -34,7 +34,7 @@ Rails.application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
+  config.assets.debug = true #default is true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.

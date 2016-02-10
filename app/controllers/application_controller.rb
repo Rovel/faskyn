@@ -51,7 +51,8 @@ class ApplicationController < ActionController::Base
     @q_users = User.ransack(params[:q])
     #regardless the search it gives back the users the current_user hast the most tasks with
     if user_signed_in? #&& if_tasks_any?
-      @users3 = current_user.ordered_relating_users
+      #@users3 = current_user.ordered_relating_users
+      @users3 = @q_users.result(distinct: true).includes(:profile).limit(8)
     else
     # #displaying users in the sidebar not needed at the moment as it will appear in the main area
       @users3 = @q_users.result(distinct: true).includes(:profile).limit(8)#paginate(page: params[:page], per_page: 6)
@@ -63,16 +64,14 @@ class ApplicationController < ActionController::Base
     if Task.between(current_user.id, @user.id).present?
       @tasks = Task.uncompleted.between(current_user.id, @user.id).order("created_at DESC").includes(:assigner).paginate(page: params[:page], per_page: 14)
       @task_between = Task.new
-      if Conversation.between(current_user.id, @user.id).present?
-        @conversation = Conversation.between(current_user.id, @user.id).first
-        @messages = @conversation.messages.includes(:user).order(created_at: :desc).limit(50).reverse
-        @message = Message.new
-        Notification.decreasing_chat_notification_number(current_user, @user)
-        Notification.decreasing_other_notification_number(current_user, @user)
-        respond_to do |format|
-          format.html
-          format.js { render :template => "tasks/update.js.erb", :template => "tasks/destroy.js.erb", :template => "tasks/between.js.erb", layout: false }
-        end
+      @conversation = Conversation.create_or_find_conversation(current_user, @user)
+      @messages = @conversation.messages.includes(:user).order(created_at: :desc).limit(50).reverse
+      @message = Message.new
+      Notification.decreasing_chat_notification_number(current_user, @user)
+      Notification.decreasing_other_notification_number(current_user, @user)
+      respond_to do |format|
+        format.html
+        format.js { render :template => "tasks/between.js.erb", layout: false }
       end
     else
       redirect_to user_profile_path(@user)

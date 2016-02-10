@@ -2,9 +2,15 @@
 @import 'bootstrap';
 
 $gray-medium-light: #eaeaea;
+<<<<<<< HEAD
 $brand-blue: #007cc3;
 $dark-grey: #5E5E5E;
 $dropbox-light-grey: #7b8994;
+=======
+$garmin-blue: #007cc3;
+$dark-grey: #5E5E5E; //dark text grey
+$light-grey: #f7f7f7; //super light grey background
+>>>>>>> faskyn/master
 $orange: #ff6600;
 
 $brand-pink       : #E0224F;
@@ -17,7 +23,7 @@ $brand-gray-dark  : #333333;
 $brand-gray-light : #B8B8B8;
 
 /*app layout*/
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
 $body-bg:                 #ecf0f1;
 $font-family-sans-serif:  'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -136,7 +142,12 @@ a {
 
 .signedinbar .navbar-default {
   .navbar-btn .btn-danger {
+<<<<<<< HEAD
     border-color: $brand-blue;
+=======
+    border-color: $garmin-blue;
+    color: white;
+>>>>>>> faskyn/master
   }
   .navbar-right {
     margin-right:5px;
@@ -184,24 +195,16 @@ a {
 
 //FOOTER
 
-footer {
+#footer {
   vertical-align: middle;
   text-align: center;
   padding-top: 5px;
-  background-color: $gray-medium-light;
-  color: $gray-light;
-  a {
-    color: $gray;
-    &:hover {
-      color: $gray-darker;
-    }
-  }
+  background-color: $light-grey;
 
-  .footer-left {
-    float: left;
-    min-width: 400px;
-    vertical-align: middle;
-  }
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 
   ul {
     float: right;
@@ -211,10 +214,6 @@ footer {
       margin-left: 15px;
     }
   }
-}
-
-.footer-nav {
-  vertical-align: middle;
 }
 
 /* navbar */
@@ -270,7 +269,11 @@ footer {
   height: 100%;
   margin-left: -250px;
   overflow-y: hidden;
+<<<<<<< HEAD
   background: #f7f7f7;//background: $brand-blue;
+=======
+  background: $light-grey;
+>>>>>>> faskyn/master
   border-right: 1px $gray-medium-light solid;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;

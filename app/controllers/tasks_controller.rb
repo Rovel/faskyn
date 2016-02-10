@@ -9,9 +9,7 @@ class TasksController < ApplicationController
   require 'will_paginate/array'
 
   def index
-    #with no ransack
     #@tasks = current_user.tasks_uncompleted.paginate(page: params[:page], per_page: 12)
-    #with ransack
     @q_tasks = Task.alltasks(current_user).uncompleted.ransack(params[:q])
     #eager loading --> @tasks = @q_tasks.result.includes(:executor_profile, :assigner_profile).order("deadline DESC").paginate(page: params[:page], per_page: 12)
     @tasks = @q_tasks.result.includes(:executor, :executor_profile, :assigner, :assigner_profile).order("created_at DESC").paginate(page: params[:page], per_page: Task.pagination_per_page)
@@ -45,9 +43,7 @@ class TasksController < ApplicationController
   end
 
   def incoming_tasks
-    #with no ransack
-      #@executed_tasks = current_user.executed_tasks.uncompleted.order("created_at DESC").paginate(page: params[:page], per_page: 12)
-    #ransack version for sorting
+    #@executed_tasks = current_user.executed_tasks.uncompleted.order("created_at DESC").paginate(page: params[:page], per_page: 12)
     @q_incoming_tasks = current_user.executed_tasks.uncompleted.ransack(params[:q])
     @tasks = @q_incoming_tasks.result.includes(:assigner, :assigner_profile).order("created_at DESC").paginate(page: params[:page], per_page: Task.pagination_per_page)
     respond_to do |format|
@@ -65,14 +61,15 @@ class TasksController < ApplicationController
     #check for other_user_profile_exists before filter (@task = Task.new(task_params))
     @task.assigner_id = current_user.id
     if @task.save
-      TaskcreatorWorker.perform_async(@task.id, @user.id, 5) #sidekiq email on task creation
+      TaskCreatorJob.perform_later(@task.id, @user.id) #sidekiq email on task creation
+      #TaskMailer.task_created(task, user).deliver_later
       Conversation.create(sender_id: @task.assigner_id, recipient_id: @task.executor_id)
+      Notification.send_notification(@task.executor, "task", @task.assigner)
       respond_to do |format|
         format.html { redirect_to user_tasks_path(current_user), notice: "Task saved!" }
         format.js
       end
-      #sending in-app notification to executor; send_notification defined in notification.rb
-      Notification.send_notification(@task.executor, "task", @task.assigner)
+      #sending in-app notification to executor; send_notification defined in notification.rb      
     else
       respond_to do |format|
         format.html { render action: :new }
